@@ -3,7 +3,6 @@ package com.company;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
 
 public class Main {
 
@@ -14,7 +13,6 @@ public class Main {
         boolean mouseFound = false;
         int randomNumber = 0;
         boolean correctInput = false;
-
 
         String furniture = "";
         Scanner scanner = new Scanner(System.in);
@@ -30,7 +28,7 @@ public class Main {
 
         Random random = new Random();
 
-	    while (robotWorking == 1) {
+        while (robotWorking == 1) {
 
             furniture = scanner.nextLine();
 
@@ -75,12 +73,12 @@ public class Main {
 
             correctInput = false; // Resetting the flag.
 
-            if (foundPixels % 2 == 0) {
+            if (foundPixels % 2 == 0) { // Checking if we can devide the number by 2.
                 System.out.println("Mouse found!");
                 mouseFound = true;
             }
 
-            if (mouseFound == true && batteryStatus > 0) {
+            if (mouseFound == true && batteryStatus > 0) { // Checking if we power (battery) and if the mouse if found.
                 randomNumber = random.nextInt(10);
                 if (randomNumber == 5) {
                     System.out.println("Furniture will be destroyed! Skipping fight with the mouse!");
@@ -91,7 +89,7 @@ public class Main {
                 mouseFound = false;
             }
 
-            if (batteryStatus == 0) {
+            if (batteryStatus == 0) { // Checking for low battery.
                 System.out.println("Robot needs charging!");
                 batteryStatus = checkForElectricity(random);
             }
