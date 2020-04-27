@@ -58,6 +58,7 @@ public class Main {
                     batteryStatus--;
                     System.out.println("Mouse was destroyed! Muhahah! We have battery for " + batteryStatus +  " more fights!");
                 }
+                mouseFound = false;
             }
 
             if (batteryStatus == 0) {
