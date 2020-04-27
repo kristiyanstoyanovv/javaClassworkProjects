@@ -1,7 +1,9 @@
 package com.company;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 
 public class Main {
 
@@ -11,40 +13,68 @@ public class Main {
         int foundPixels = 0;
         boolean mouseFound = false;
         int randomNumber = 0;
+        boolean correctInput = false;
+
 
         String furniture = "";
         Scanner scanner = new Scanner(System.in);
-        System.out.println("To turn on the robot write \"1\"!");
-        robotWorking = scanner.nextInt();
+
+        while (robotWorking != 1) { // Checking for right input!
+            System.out.println("To turn on the robot write \"1\"!");
+            try {
+                robotWorking = scanner.nextInt();
+            } catch (Exception e) {
+                scanner.nextLine();
+            }
+        }
 
         Random random = new Random();
 
 	    while (robotWorking == 1) {
 
-            System.out.println("Type furniture: ");
-	        furniture = scanner.nextLine();
             furniture = scanner.nextLine();
 
-            if (furniture.equals("Wall")) {
-                moveRobot(3);
-            } else if (furniture.equals("Chair")) {
-                moveRobot(2);
-            } else if (furniture.equals("None")) {
-                moveRobot(1);
-            } else if (furniture.equals("0")) {
-                for (int i = 10; i > 0; i--) {
-                    System.out.println(i);
-                    if (i % 2 == 0) {
-                        System.out.println("I am a Robottttt");
-                    }
+            do {
+                System.out.println("Type furniture: ");
+                furniture = scanner.nextLine();
 
+                if (furniture.equals("Wall")) {
+                    moveRobot(3);
+                    correctInput = true;
+                } else if (furniture.equals("Chair")) {
+                    moveRobot(2);
+                    correctInput = true;
+                } else if (furniture.equals("None")) {
+                    moveRobot(1);
+                    correctInput = true;
+                } else if (furniture.equals("0")) {
+                    correctInput = true;
+                    for (int i = 10; i > 0; i--) {
+                        System.out.println(i);
+                        if (i % 2 == 0) {
+                            System.out.println("I am a Robottttt");
+                        }
+
+                    }
+                    System.out.println("Robot turned off! CYA!");
+                    return;
                 }
-                System.out.println("Robot turned off! CYA!");
-                break;
+            } while (!correctInput); // Checking for right input!
+
+            correctInput = false; // Resetting the flag.
+
+            while (!correctInput) { // Checking for right input!
+                System.out.println("Type pixels: ");
+                try {
+                    foundPixels = scanner.nextInt();
+                    correctInput = true;
+                } catch (InputMismatchException e) {
+                    scanner.nextLine();
+                }
             }
 
-            System.out.println("Type pixels: ");
-            foundPixels = scanner.nextInt();
+            correctInput = false; // Resetting the flag.
+
             if (foundPixels % 2 == 0) {
                 System.out.println("Mouse found!");
                 mouseFound = true;
