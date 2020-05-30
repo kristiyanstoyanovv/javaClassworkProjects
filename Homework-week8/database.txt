@@ -1,0 +1,4 @@
+{TYPE}=[R]@{FNAME}=[Mihail]@{LNAME}=[Petrov]@{AGE}=[48]@{SEX}=[M]@{ADDRESS}=[Plovdiv]@{PHONE}=[0885555555]@{SPECIAL_PROPERTY}::{PENSION}=[120]
+{TYPE}=[W]@{FNAME}=[Mihail]@{LNAME}=[Petrov]@{AGE}=[28]@{SEX}=[M]@{ADDRESS}=[Plovdiv]@{PHONE}=[0885555555]@{SPECIAL_PROPERTY}::{SALARY}=[420]
+{TYPE}=[M]@{FNAME}=[Mihaila]@{LNAME}=[Petrova]@{AGE}=[28]@{SEX}=[F]@{ADDRESS}=[Plovdiv]@{PHONE}=[0885555555]@{SPECIAL_PROPERTY}::{KID}=[{KFNAME}=[Ivan]@{KLNAME}=[Shamov]{KAGE}=[6]]
+{TYPE}=[M]@{FNAME}=[Mihaila]@{LNAME}=[Ivanova]@{AGE}=[38]@{SEX}=[F]@{ADDRESS}=[Plovdiv]@{PHONE}=[0885555555]@{SPECIAL_PROPERTY}::{KID}=[{KFNAME}=[Nencho]@{KLNAME}=[Nakov]{KAGE}=[6]]:{KID}=[{KFNAME}=[Pencho]@{KLNAME}=[Salamov]{KAGE}=[8]]
